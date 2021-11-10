@@ -56,8 +56,8 @@ pipeline {
         stage('Remove local docker image') {
             steps{
 			    echo 'will do later'
-                //sh "docker rmi $imageName:latest"
-                //sh "docker rmi $imageName:$BUILD_NUMBER"
+                sh "docker rm -f $imageName:latest"
+                sh "docker rm -f $imageName:$BUILD_NUMBER"
             }
         }
     }
