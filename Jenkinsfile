@@ -2,7 +2,7 @@ pipeline {
     agent any 
     environment {
         registryCredential = 'mertkaan'
-        imageName = 'mertkaan/temp-v0.1'
+        imageName = 'mertkaan/temp-11'
         dockerImage = ''
         }
     stages {
