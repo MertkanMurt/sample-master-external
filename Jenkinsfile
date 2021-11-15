@@ -41,13 +41,16 @@ pipeline {
                 }
             }
         }     
-         stage ('K8S Deploy') {
-       
-                kubernetesDeploy(
-                    configs: 'MyAwesomeApp/springboot-lb.yaml',
-                    kubeconfigId: 'K8S',
-                    enableConfigSubstitution: true
-                    )
+         stage('deploy to k8s') {
+             agent {
+                docker { 
+                    image 'google/cloud-sdk:latest'
+                    args '-e HOME=/tmp'
+                    reuseNode true
+                        }
+                    }
+            steps {
+			    echo 'testing k8 step'
              }
         }     
         stage('Remove local docker image') {
